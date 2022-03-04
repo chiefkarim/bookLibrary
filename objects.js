@@ -7,16 +7,21 @@ class Book {
     this.read = "read:" + read;
   }
 }
-
 function addBookToLibrary() {
-  let title = document.getElementById("title").value;
-  let author = document.getElementById("author").value;
-  let pages = document.getElementById("pages").value;
-  let read = document.getElementById("read").value;
-  console.log(title);
-  let book = new Book(title, author, pages, read);
+  const getInput = {
+    title: document.getElementById("title").value,
+    author: document.getElementById("author").value,
+    pages: document.getElementById("pages").value,
+    read: document.getElementById("read").value,
+  };
+  let book = new Book(
+    getInput.title,
+    getInput.author,
+    getInput.pages,
+    getInput.read
+  );
   myLibrary.push(book);
-  let hide = document.querySelector(".formulaContainer").remove();
+  document.querySelector(".formulaContainer").remove();
 }
 let i = -1;
 function Display() {
@@ -111,5 +116,3 @@ addBookButton.addEventListener("click", function () {
     Display();
   });
 });
-
-console.log(myLibrary);
